@@ -1,0 +1,27 @@
+
+#firebaseBox {
+
+}
+
+.jumbotron {
+	opacity: 0.85;
+	border-bottom: 3px solid #cc1819;
+}
+
+.fonts {
+	font-family: 'Cinzel', serif;
+}
+
+body {
+	background-image: url(../images/girl-train.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;}
+
+.card {
+	border-color: #cc1819;
+	opacity: 0.85;
+}
+
+#addEmployee {
+	color: #cc1819;
+}
