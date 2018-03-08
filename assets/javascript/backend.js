@@ -11,46 +11,64 @@ $(document).ready(function(){
   firebase.initializeApp(config);
     // Create a variable to reference the database
     var database = firebase.database();
-     var trainName = " ";
-     var destination = " ";
-     var frequency = " ";
-     var nextArrival = " ";
-     var minutesAway = " ";
-     var firstTime = " ";
+     var trainName = "";
+     var destination = "";
+     var frequency = 0;
+     var nextArrival = 0;
+     var minutesAway = 0;
+     var firstTime = 0;
 
 // on click function takes input information and assigns it to the table
-    $("#addEmployee").on("click", function(){
+    $("#addTrain").on("click", function(){
 
         event.preventDefault();
 
-        trainName = $("#trainName").val();
-        destination = $("#destination").val();
-        firstTime = $("#firstTime").val();
-        frequency = $("#frequency").val();
+        trainName = $("#trainName").val().trim();
+        destination = $("#destination").val().trim();
+        firstTime = $("#firstTime").val().trim();
+        frequency = $("#frequency").val().trim();
+
+        // time calculation
+        // First time - needs to be pushed back a year to come before current time
+        var timeConverter = moment(firstTime, "hh:mm a").subtract(1, "years");
+        var timeDifference = moment().diff(moment(timeConverter), "minutes");
+        // remainder
+        var timeRemaining = timeDifference % frequency;
+        // minutes until next train
+        var timeToNextTrain = frequency - timeRemaining;
+        nextArrival = moment().add(timeToNextTrain, "minutes").format("hh:mm a");
 
         database.ref().set({
 
         trainName: trainName,
         destination: destination,
         firstTime: firstTime,
-        frequency: frequency
+        frequency: frequency,
+        nextArrival: nextArrival,
+        timeToNextTrain: timeToNextTrain
         
       });
+
+
+
 
 // firebase reference for variables
         database.ref().on("child_added", function(snapshot) {
 
-        var trainRow = $("<tr>");
+          // append table row
+        var trainRow = $("<tr></tr>");
 
-        trainRow.append(snapshot.val().trainName);
-        trainRow.append(snapshot.val().destination);
-        trainRow.append(snapshot.val().firstTime);
-        trainRow.append(snapshot.val().frequency);
+        // table coloumns
+        trainRow.append("<td>" + snapshot.val().trainName + "</td>");
+        trainRow.append("<td>" + snapshot.val().destination + "</td>");
+        trainRow.append("<td>" + snapshot.val().frequency + "</td>");
+        trainRow.append("<td>" + snapshot.val().nextArrival + "</td>");
+        trainRow.append("<td>" + snapshot.val().timeToNextTrain + "</td>");
       
         $("#tableRow").append(trainRow);
 
         });
         
-        
-      });
+        });
+     
     });

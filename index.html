@@ -50,15 +50,9 @@
                   <!--Table head-->
 
                     <!--Table body-->
-                    <tbody>
-                        <tr id="tableRow">
-                            <td scope="row" id="trainName"></td>
-                            <td id="destination"></td>
-                            <td id="frequency"></td>
-                            <td id="nextArrival"></td>
-                            <td id="minutesAway"></td>
-                        </tr>
-              
+                    <tbody id="tableRow" class="fonts">
+                        
+                    </tbody>
                 </table>
                 <!--Table-->
 
@@ -82,19 +76,19 @@
 			<form>
   			<div class="form-group">
     			<label for="exampleInputEmail1" class="fonts">Train Name</label>
-    			<input class="form-control" id="trainNameInput" aria-describedby="emailHelp">
+    			<input class="form-control" id="trainName" aria-describedby="emailHelp">
   			</div>
   			<div class="form-group">
    				<label for="exampleInputEmail1" class="fonts">Destination</label>
-          <input class="form-control" id="destinationInput" aria-describedby="emailHelp">
+          <input class="form-control" id="destination" aria-describedby="emailHelp">
         </div>
   			<div class="form-group">
     			<label for="exampleInputEmail1" class="fonts">First Train Time (HH:mm - military time)</label>
-    			<input class="form-control" id="firstTimeInput" aria-describedby="emailHelp">
+    			<input class="form-control" id="firstTime" aria-describedby="emailHelp">
   			</div>
         <div class="form-group">
           <label for="exampleInputEmail1" class="fonts">Frequency (min)</label>
-          <input class="form-control" id="frequencyInput" aria-describedby="emailHelp">
+          <input class="form-control" id="frequency" aria-describedby="emailHelp">
         </div>
   			<button id="addTrain" class="btn btn-danger fonts">Add</button>
 			</form>
@@ -115,7 +109,14 @@
 
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 
-<script type="text/javascript" src="assets/javascript/moment.js">
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">  
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+
+<script type="text/javascript" src="assets/javascript/backend.js">
 </script>
 
 
