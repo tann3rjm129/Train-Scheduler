@@ -2,7 +2,7 @@
 
 * Per a UCD Coding Bootcamp assignment,
 
-Application to apply trains and their corresponding details to a train schedule. Based on the details, the backend js calculates data, saves it to firebase database, and displays it to the html. 
+Application to add trains and their corresponding details to a train schedule. Based on the details, the backend js calculates data, saves it to firebase database, and displays it to the html. 
 
 ---
 
