@@ -4,9 +4,8 @@
 }
 
 .jumbotron {
-	opacity: 0.85;
-	border-bottom: 3px solid #cc1819;
-}
+	border-top: 50px solid #cc1819;
+	}
 
 .fonts {
 	font-family: 'Cinzel', serif;
@@ -22,6 +21,6 @@ body {
 	opacity: 0.85;
 }
 
-#addEmployee {
+#addTrain {
 	color: #cc1819;
 }
