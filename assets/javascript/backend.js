@@ -38,7 +38,7 @@ $(document).ready(function(){
         var timeToNextTrain = frequency - timeRemaining;
         nextArrival = moment().add(timeToNextTrain, "minutes").format("hh:mm a");
 
-        database.ref().set({
+        database.ref().push({
 
         trainName: trainName,
         destination: destination,
@@ -50,6 +50,12 @@ $(document).ready(function(){
       });
 
 
+        $("#trainName").val("");
+        $("#destination").val("");
+        $("#firstTime").val("");
+        $("#frequency").val("");
+
+});
 
 
 // firebase reference for variables
@@ -69,6 +75,5 @@ $(document).ready(function(){
 
         });
         
-        });
      
     });
